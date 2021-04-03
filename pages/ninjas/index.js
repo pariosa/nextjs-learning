@@ -2,7 +2,7 @@ import { useEffect } from "react"
 import styles from "../../styles/Ninjas.module.css"
 import Link from 'next/link'
 export const getStaticProps = async () =>{
-    const response = await fetch ('https://jsonplaceholder.typicode.com/users');
+    const response = await fetch ('http://localhost:3000/api/users/all');
     const data = await response.json();
 
     return {

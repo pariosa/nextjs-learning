@@ -2,7 +2,7 @@ import Link from 'next/link'
 import styles from '../../styles/Ninjas.module.css'
 
 export const getStaticPaths = async () => {
-    const response = await fetch('https://jsonplaceholder.typicode.com/users');
+    const response = await fetch('http://localhost:3000/api/users/all');
     const data = await response.json()
     const paths = data.map((ninja)=>{
         return {
@@ -18,7 +18,7 @@ export const getStaticPaths = async () => {
 }
 export const getStaticProps = async (context) =>{
     const id = context.params.id
-    const response = await fetch (`https://jsonplaceholder.typicode.com/users/${id}`);
+    const response = await fetch (`http://localhost:3000/api/users/${id}`);
     const data = await response.json();
 
     return {
@@ -40,7 +40,6 @@ const Details = ({ ninja }) => {
              <Link href="/ninjas">
                 <a className={styles.btn}>go back</a>
              </Link>
-            
         </div>
      );
 }
